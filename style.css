@@ -8,10 +8,15 @@
 		opacity: 0;
 	}
 }
+/* OG Colors
+	26221F
+	211D1B
+	4D6358
+*/
 :root {
-	--background-alt: #26221F;
-	--background: #211D1B;
-	--base-txt: #4D6358;
+	--background-alt: #830303;
+	--background: #000000;
+	--base-txt: #FFFFFF;
 }
 ::-webkit-input-placeholder {
     opacity: 1 !important;
@@ -52,7 +57,7 @@ span#instructionsToggle {
 	border-radius: 30px;
 	position: absolute;
 	font-weight: bold;
-	color: #60B48A;
+	color: #FFFFFF;
 	padding: 10px;
 	margin: 10px;
 	opacity: .5;
@@ -97,7 +102,7 @@ span#escape {
 	text-align: center;
 	font-weight: bold;
 	font-size: 70px;
-	color: #60B48A;
+	color: var(--base-txt);
 	z-index: 10;
 	width: 100%;
 	top: 130px;

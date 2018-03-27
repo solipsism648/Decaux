@@ -1,6 +1,8 @@
-var focused = 1; // It's global so I can save it and then use it when I quit the search bar.
+// It's global so I can save it and then use it when I quit the search bar.
+var focused = 1;
 
-window.onfocus = function(){document.getElementById(focused).focus();}; // Focus at start and when window is focused again.
+// Focus at start and when window is focused again.
+window.onfocus = function(){document.getElementById(focused).focus();};
 
 window.onclick = function(e){
 	if ( document.activeElement.id != "search" ) {
@@ -8,7 +10,8 @@ window.onclick = function(e){
 	}
 };
 
-document.getElementById("search").onblur = function(){ // Unfocusing search bar
+// Unfocusing search bar
+document.getElementById("search").onblur = function(){ 
 	document.getElementById(focused).focus();
 	document.getElementById("escape").style.opacity = 0;
 	document.getElementById("blackout").style.opacity = 0;
@@ -16,18 +19,22 @@ document.getElementById("search").onblur = function(){ // Unfocusing search bar
 	document.getElementById("liveClock").style.color = '';
 	document.getElementById("search").value = '';
 };
-document.getElementById("search").onfocus = function(){ // Focusing search bar
+
+// Focusing search bar
+document.getElementById("search").onfocus = function(){
 	document.getElementById("escape").style.opacity = .7;
 	document.getElementById("blackout").style.opacity = .3;
 	document.getElementById("blackout").style.pointerEvents = "all";
 	document.getElementById("liveClock").style.color = "#60B48A";
 };
 
-function helpToggle(){ // Toggle instructions opacity to show/hide
+// Toggle instructions opacity to show/hide
+function helpToggle(){
 	if ( document.getElementById("instructions").style.opacity < .9 ) {
 		document.getElementById("instructions").style.opacity = .9;
 		document.getElementById("instructionsToggle").style.opacity = 1;
-	} else {
+	} 
+	else {
 		document.getElementById("instructions").style.opacity = 0;
 		document.getElementById("instructionsToggle").style.opacity = '';
 	}
@@ -37,7 +44,8 @@ document.onkeydown = function(e) {
 
 	var key = e.keyCode;
 
-	if ( document.activeElement.id == "search" ) { // If search bar and key [ESC], go back to blocks.
+// If search bar and key [ESC], go back to blocks.
+	if ( document.activeElement.id == "search" ) {
 		if ( key == 27 ) {
 			document.getElementById("search").value = '';
 			document.activeElement.blur();
@@ -46,8 +54,10 @@ document.onkeydown = function(e) {
 		return;
 	}
 
+// Keys for help and search still working 
+// even if no block selected, 
+// if it's another key, then select last block.
 	if (!document.activeElement.id) {
-		// Keys for help and search still working even if no block selected, if it's another key, then select last block.
 		if ( key == 32 ) { // Key space, focus search bar and show [ESP] instruction.
 			document.getElementById("search").focus();
 		} else if ( key == 72 ) { // H key, toggle instructions.
